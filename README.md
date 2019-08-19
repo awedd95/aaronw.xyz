@@ -1,7 +1,10 @@
 # Resume
 
-To start your Phoenix server:
+I started this project as a way of keeping my resume up to date for employers and to act as a portfolio for my projects going forward.
 
+I chose to use Elm, Elixir and Phoenix as a means to getting better at functional programming. 
+
+To use this locally:
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `cd assets && npm install`
@@ -9,12 +12,4 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Please note you will need to have postgres installed locally for this to run.
