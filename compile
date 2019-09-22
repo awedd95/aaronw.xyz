@@ -1,8 +1,5 @@
 
 npm install
-cd src
-elm make Components.elm Main.elm
-cd ../
 npm run deploy
 cd $phoenix_dir
 mix "${phoenix_ex}.digest"
