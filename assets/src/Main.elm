@@ -85,13 +85,13 @@ view model =
                 Components.index
 
             Projects ->
-                text "Projects!"
+                Components.projects
 
             About ->
                 Components.about
 
             Contact ->
-                text "Contact"
+                Components.contact
         ]
     }
 

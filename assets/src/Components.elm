@@ -1,4 +1,4 @@
-module Components exposing (about, index, nav)
+module Components exposing (about, contact, index, nav, projects)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -22,7 +22,7 @@ index =
     div []
         [ h1 [] [ text "Aaron Wedd" ]
         , h3 [] [ text "Developer" ]
-        , ul []
+        , ul [ class "LinksOut" ]
             [ li [] [ a [ href "www.github.com/awedd95" ] [ text "Github" ] ]
             , li [] [ a [ href "www.linkedin.com/in/aaron-wedd" ] [ text "LinkedIn" ] ]
             ]
@@ -62,5 +62,34 @@ about =
                 , li [] [ text "GraphQL APIs" ]
                 , li [] [ text "REST APIs" ]
                 ]
+            ]
+        ]
+
+
+projects : Html msg
+projects =
+    div []
+        [ h2 []
+            [ text "Projects" ]
+        , table [] [ th [] [ text "Project" ], th [] [ text "Language" ] ]
+        ]
+
+
+contact : Html msg
+contact =
+    div []
+        [ h2 []
+            [ text "Contact Me" ]
+        , Html.form []
+            [ legend []
+                [ text "Name" ]
+            , input [] []
+            , legend []
+                [ text "Email" ]
+            , input [] []
+            , legend []
+                [ text "Message" ]
+            , textarea [] []
+            , button [] [ text "Submit" ]
             ]
         ]
