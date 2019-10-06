@@ -1,22 +1,14 @@
-defmodule  GraphqlWeb.Schema do
+defmodule  ResumeWeb.Schema do
   use Absinthe.Schema
-   @items %{
-    "foo" => %{id: "foo", name: "Foo"},
-    "bar" => %{id: "bar", name: "Bar"}
-  }
-
-  @desc "An item"
-object :item do
-  field :id, :id
-  field :name, :string
-end
+  
+  import_types ResumeWeb.Schema.DataTypes
+  
   query do
-    field :item, :item do
-      arg :id, non_null(:id)
-      resolve fn %{id: item_id}, _ ->
-        {:ok, @items[item_id]}
+    @desc "Get a list of events"
+    field :events, list_of(:event) do
+      resolve fn _parent, _args, _resolution ->
+        {:ok, ResumeWeb.Log.list_events()}
       end
     end
   end
-
 end

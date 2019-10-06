@@ -20,7 +20,7 @@ defmodule Resume.MixProject do
   def application do
     [
       mod: {Resume.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -41,7 +41,7 @@ defmodule Resume.MixProject do
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
+      {:jason, "~> 1.1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~>1.4"}, 
       {:absinthe_plug, "~> 1.4.0"},

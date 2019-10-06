@@ -8,10 +8,6 @@ defmodule ResumeWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
-
-  #  pipeline :api do
-  #  plug :accepts, ["json"]
-  # end
   
   scope "/", ResumeWeb do
     pipe_through :browser
@@ -22,26 +18,27 @@ defmodule ResumeWeb.Router do
     get "/contact", PageController, :index
   end
 
-
-
-  pipeline :graphql do
-    plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json, Absinthe.Plug.Parser],
-    pass: ["*/*"],
-    json_decoder: Jason
-    plug Absinthe.Plug,
-      schema: GraphqlWeb.Schema
-
-  end
+   pipeline :api do
+     plug Plug.Parsers,
+      parsers: [:urlencoded, :multipart, :json, Absinthe.Plug.Parser],
+      pass: ["*/*"],
+      json_decoder: Jason
+     plug Absinthe.Plug,
+      schema: ResumeWeb.Schema
+   end
 
   scope "/api" do
-    pipe_through(:graphql)
-    forward("/graphiql", Absinthe.Plug.GraphiQL, schema: GraphqlWeb.Schema)
-    forward("/", Absinthe.Plug, schema: GraphqlWeb.Schema)
+    pipe_through(:api)
+  
+    forward "/graphiql",
+      Absinthe.Plug.GraphiQL,
+      schema: ResumeWeb.Schema,
+      interface: :playground
+    
+    forward "/",
+      Absinthe.Plug,
+      schema: ResumeWeb.Schema
   
   end
-  # Other scopes may use custom stacks.
-  # scope "/api", ResumeWeb do
-  #   pipe_through :api
-  # end
-end
+    #    forward("/graphql", Absinthe.Plug, schema: ResumeWeb.Schema)
+  end

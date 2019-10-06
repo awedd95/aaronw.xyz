@@ -1,0 +1,18 @@
+query { 
+  viewer { 
+    name
+    repositories(first: 50){
+      nodes{
+        name
+        languages(first: 3) {
+          edges {
+            node{
+              name
+            }
+          }
+        }
+      description
+      }
+    }
+  }
+}
