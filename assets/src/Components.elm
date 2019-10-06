@@ -23,8 +23,8 @@ index =
         [ h1 [] [ text "Aaron Wedd" ]
         , h3 [] [ text "Developer" ]
         , ul [ class "LinksOut" ]
-            [ li [] [ a [ href "www.github.com/awedd95" ] [ text "Github" ] ]
-            , li [] [ a [ href "www.linkedin.com/in/aaron-wedd" ] [ text "LinkedIn" ] ]
+            [ li [] [ a [ href "https://www.github.com/awedd95" ] [ text "Github" ] ]
+            , li [] [ a [ href "https://www.linkedin.com/in/aaron-wedd" ] [ text "LinkedIn" ] ]
             ]
         ]
 
